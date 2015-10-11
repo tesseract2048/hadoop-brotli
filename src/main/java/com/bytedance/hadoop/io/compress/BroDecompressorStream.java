@@ -49,11 +49,11 @@ public class BroDecompressorStream extends DecompressorStream {
       }
       if (decompressor.needsDictionary()) {
         eof = true;
-        return -1;
+        return n;
       }
       if (decompressor.finished()) {
         eof = true;
-        return -1;
+        return n;
       }
 
       int m = getCompressedData();
