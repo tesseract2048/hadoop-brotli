@@ -47,13 +47,9 @@ public class BroDecompressorStream extends DecompressorStream {
       if (len == 0) {
         break;
       }
-      if (decompressor.needsDictionary()) {
-        eof = true;
-        return n;
-      }
       if (decompressor.finished()) {
         eof = true;
-        return n;
+        return (n > 0) ? n : -1;
       }
 
       int m = getCompressedData();
